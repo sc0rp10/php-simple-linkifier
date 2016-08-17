@@ -29,7 +29,6 @@ class Linkifier implements LinkifierInterface
         'au',
         'nl',
         'info',
-        'website',
         'рф',
     ];
 
@@ -58,6 +57,7 @@ class Linkifier implements LinkifierInterface
             return '';
         }
 
+        $text = str_replace("\r", '', $text);
         $lines = explode("\n", $text);
 
         foreach ($lines as &$line) {
@@ -108,7 +108,7 @@ class Linkifier implements LinkifierInterface
             $attr_string .= sprintf(' %s="%s"', $key, $value);
         }
 
-        return sprintf('<a href="%s">%s</a>', $link, $word);
+        return sprintf('<a href="%s"%s>%s</a>', $link, $attr_string, $word);
     }
 
     private function buildRegexes(array $tlds)
