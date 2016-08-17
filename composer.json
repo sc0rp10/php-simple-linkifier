@@ -1,0 +1,24 @@
+{
+    "name": "sc0/simple-linkifier",
+    "description": "Simple PHP Linkifier",
+    "keywords": ["linkify", "linkifier"],
+    "homepage": "https://github.com/sc0rp10/simple-php-linkifier",
+    "type": "library",
+    "require": {
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Konstantin Zamyakin",
+            "email": "dev@weblab.pro"
+        }
+    ],
+    "minimum-stability": "beta",
+    "autoload": {
+        "psr-4": {"Sc\\": "src/"}
+    }
+}
