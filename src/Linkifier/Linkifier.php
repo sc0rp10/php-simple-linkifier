@@ -118,7 +118,7 @@ class Linkifier implements LinkifierInterface
             $attr_string .= sprintf(' %s="%s"', $key, $value);
         }
 
-        return sprintf('<a href="%s" %s>%s</a>', $link, $attr_string, $word);
+        return sprintf('<a href="%s"%s>%s</a>', $link, $attr_string, $word);
     }
 
     /**
