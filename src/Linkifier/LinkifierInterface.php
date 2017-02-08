@@ -13,5 +13,5 @@ namespace Sc\Linkifier;
 
 interface LinkifierInterface
 {
-    public function linkifyText($text, array $attrs = []);
+    public function linkifyText(string $text, array $attrs = []): string;
 }

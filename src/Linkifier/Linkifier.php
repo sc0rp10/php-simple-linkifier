@@ -49,7 +49,12 @@ class Linkifier implements LinkifierInterface
         $this->buildRegexes($tlds);
     }
 
-    public function linkifyText($text, array $attrs = [])
+    /**
+     * @param string $text
+     * @param array $attrs
+     * @return string
+     */
+    public function linkifyText(string $text, array $attrs = []): string
     {
         $text = trim($text);
 
@@ -94,7 +99,12 @@ class Linkifier implements LinkifierInterface
         return implode("\n", $lines);
     }
 
-    protected function linkifyWord($word, array $attrs = [])
+    /**
+     * @param string $word
+     * @param array $attrs
+     * @return string
+     */
+    protected function linkifyWord(string $word, array $attrs = []): string
     {
         $link = $word;
 
@@ -108,10 +118,13 @@ class Linkifier implements LinkifierInterface
             $attr_string .= sprintf(' %s="%s"', $key, $value);
         }
 
-        return sprintf('<a href="%s"%s>%s</a>', $link, $attr_string, $word);
+        return sprintf('<a href="%s" %s>%s</a>', $link, $attr_string, $word);
     }
 
-    private function buildRegexes(array $tlds)
+    /**
+     * @param array $tlds
+     */
+    private function buildRegexes(array $tlds): void
     {
         if (!static::$compiled_regexes) {
             $str = implode('|', $tlds);
@@ -124,7 +137,11 @@ class Linkifier implements LinkifierInterface
         }
     }
 
-    private function isParenthesisBalanced($str)
+    /**
+     * @param string $str
+     * @return bool
+     */
+    private function isParenthesisBalanced(string $str): bool
     {
         $count = 0;
         $length = mb_strlen($str, 'UTF-8');
