@@ -13,7 +13,7 @@ namespace Sc\Linkifier;
 
 class Linkifier implements LinkifierInterface
 {
-    const DEFAULT_TLDS = [
+    protected const DEFAULT_TLDS = [
         'com',
         'ru',
         'net',
@@ -32,9 +32,9 @@ class Linkifier implements LinkifierInterface
         'рф',
     ];
 
-    const PUNCTUATION = '/[`!\-()\[\]{};:\'".,<>?«»“”‘’]+$/u';
+    protected const PUNCTUATION = '/[`!\-()\[\]{};:\'".,<>?«»“”‘’]+$/u';
 
-    const REGEXES = [
+    protected const REGEXES = [
         '/^https?:\/\//u',
         '/(.+)\.(#tlds#)(\/|\?)?$/u',
         '/(.+)\.(#tlds#)(\/|\?)[\w\/-_\.!&]*$/u',
